@@ -44,4 +44,19 @@ def check_password_strength(password):
     if score == 4:
         return "✅ Nailed it! That’s a strong password. 🔐", None
     elif score == 3:
-        return "🟡 Not bad, but a few tweaks could make it even
+        return "🟡 Not bad, but a few tweaks could make it even better.", suggestions
+    else:
+        return "🔴 Hmm… that could use some work.", suggestions
+
+# Random strong password generator
+def generate_password(length=12):
+    if length < 8:
+        length = 8  # Minimum length
+
+    # Ensure password has at least one of each type
+    password = [
+        random.choice(lowercase),
+        random.choice(uppercase),
+        random.choice(digits),
+        random.choice(special_chars)
+    ]
